@@ -52,9 +52,9 @@ See \ https://github.com/qupath/qupath/wiki/
 
 #. Copy all the content of the scipt from https://raw.githubusercontent.com/glencoesoftware/ome-omero-roitool/master/QuPath.scripts/OME_XML_export.groovy and paste it into the script editor of QuPath. 
 
-#. In QuPath, with Script editor window still highlighted, select Run > Run in the top menu. There will be some output in the console of the script editor (the window just under where you pasted your script).
+#. In QuPath, with Script editor window still highlighted, select *Run > Run* in the top menu. There will be some output in the console of the script editor (the window just under where you pasted your script).
 
-#. Note: The large areas highlighted as yellow (called ROI Annotations above here, but Annotations in QuPath), which define the areas where you ran the *Cell detection* will not be recognized by the OME-XML export script properly if you use *Magic wand* tool to draw them, and will not be written into the OME-XML file correctly. Thus, they will later not appear as ROIs in OMERO. This is signified by lines such as shown below this block, which appear in the console output. You can ignore them, the ROIs you just created from the *Cell detection* will be written correctly::
+#. Note: The large areas highlighted as yellow (called ROI Annotations above here, but Annotations in QuPath), which define the areas where you ran the *Cell detection* will not be recognized by the OME-XML export script properly if you use *Wand* tool to draw them, and will not be written into the OME-XML file correctly. Thus, they will later not appear as ROIs in OMERO. This is signified by lines such as shown below this block, which appear in the console output. You can ignore them, the ROIs you just created from the *Cell detection* will be written correctly::
 
       INFO: ROI type: class qupath.lib.roi.GeometryROI INFO: Unsupported ROI type: Geometry (117832, 22510, 562, 330)
 
@@ -96,12 +96,20 @@ See \ https://github.com/qupath/qupath/wiki/
 
 #. In the above command, replace the ``$IMAGE_ID`` parameter with the ID of the image in OMERO. You can obtain this ID for example from OMERO.iviewer (see beginning of this workflow).
 
-#. After you executed the ``import`` command above, go to OMERO.iviewer in your browser and view the ROIs on the image (screenshot).
+#. After you executed the ``import`` command above, go to OMERO.iviewer in your browser and view the ROIs on the image.
 
-#. Note: QuPath 0.2.0-m8 or earlier does not allow to set a different fill and stroke color when exporting the ROIs from QuPath to OME-XML. Thus, after import to OMERO, the ROIs are appearing as filled in with the same color as the stroke color (screenshot). You can rectify this in OMERO.iviewer if you first select all the ROIs in the table, then go to color picker on the top of the right-hand pane (screenshot) and click on the downward facing arrow. Then, set the opeacity slider in the bottom of the widget to the very left (= zero opacity), (screenshot) and click *Choose*. Click *Save* to save the changes. After you deselect the ROIs, you will see the ROIs with the same stroke and fill as QuPath originally created them (screenshot).
+  .. image:: images/qupath7.png
 
-[screenshot]
+#. Note: QuPath 0.2.0-m8 or earlier does not allow to set a different fill and stroke color when exporting the ROIs from QuPath to OME-XML. Thus, after import to OMERO, the ROIs are appearing as filled in with the same color as the stroke color.
 
+  .. image:: images/qupath8.png
 
+#. You can rectify this appearance of the ROIs in OMERO.iviewer if you first select all the ROIs in the table, then go to color picker on the top of the right-hand pane and click on the downward facing arrow.
 
+  .. image:: images/qupath9.png
 
+#. Then, set the opeacity slider in the bottom of the widget to the very left (= zero opacity), and click *Choose*.
+
+  .. image:: images/qupath10.png
+
+#. Click *Save* to save the changes. After you deselect the ROIs, you will see the ROIs with red stroke and no fill, similarly to how QuPath was showing these ROIs.
