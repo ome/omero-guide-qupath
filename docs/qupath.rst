@@ -46,7 +46,7 @@ See \ https://github.com/qupath/qupath/wiki/
 
 #. First, use the ROI OME-XML export script to export your ROIs from QuPath into OME-XML file. https://github.com/glencoesoftware/ome-omero-roitool/blob/master/QuPath.scripts/OME_XML_export.groovy#L23
 
-#. Note, this script works with QuPath version 0.2.0-m8, but not with versions 0.2.0-m9 and 0.2.0m-10.
+#. Note: The version of the ROI OME-XML export script you have to use depends on your QuPath version. For QuPath 0.2.0-m9 or earlier versions, use https://github.com/glencoesoftware/ome-omero-roitool/blob/master/QuPath.scripts/OME_XML_export.groovy. For QuPath 0.2.0-m10 use https://github.com/glencoesoftware/ome-omero-roitool/blob/d73f14a68e35eb1f9d1cc810255a42e4fa46d283/QuPath.scripts/OME_XML_export.groovy.
 
 #. In QuPath, go to *Automate > Show script editor*
 
@@ -54,38 +54,51 @@ See \ https://github.com/qupath/qupath/wiki/
 
 #. In QuPath, with Script editor window still highlighted, select Run > Run in the top menu. There will be some output in the console of the script editor (the window just under where you pasted your script).
 
-#. Note: The large areas highlighted as yellow (called Annotations in QuPath), which denote the areas where you ran the *Cell detection* will not be recognized by the OME-XML export script properly, and will not be written into the OME-XML file correctly. Thus, they will later not appear as ROIs or annotations in OMERO. This is denoted by lines such as ``INFO: ROI type: class qupath.lib.roi.GeometryROI INFO: Unsupported ROI type: Geometry (117832, 22510, 562, 330)`` which appear in the console output. You can ignore them, the ROIs you just created from the *Cell detection* will be written correctly.
+#. Note: The large areas highlighted as yellow (called ROI Annotations above here, but Annotations in QuPath), which define the areas where you ran the *Cell detection* will not be recognized by the OME-XML export script properly if you use *Magic wand* tool to draw them, and will not be written into the OME-XML file correctly. Thus, they will later not appear as ROIs in OMERO. This is signified by lines such as shown below this block, which appear in the console output. You can ignore them, the ROIs you just created from the *Cell detection* will be written correctly::
+
+      INFO: ROI type: class qupath.lib.roi.GeometryROI INFO: Unsupported ROI type: Geometry (117832, 22510, 562, 330)
+
+#. Note: If you run a *Cell detection* in QuPath, the nuclei ROIs will be drawn as well as the ROIs around the cells. The ROI OME-XML export script will ignore the ROIs around the nuclei, exporting only the ROIs around the cells.
 
 #. A new window will appear, in which you specify the name and location (on your local machine) of the output OME-XML file. Click Save.
-
-#. Note: QuPath does not allow stroke and fill color to be specified separately, and thus the ROIs will be written into the OME-XML as filled with the same color as the color of the stroke (red by default in QuPath).
 
 #. Import the OME-XML with the ROIs from QuPath into OMERO. These steps must be run on a command line. Open your terminal and install the ome-omero-roitool from https://github.com/glencoesoftware/ome-omero-roitool (note: in order to work with 5.6.x servers, https://github.com/glencoesoftware/ome-omero-roitool/pull/12 must be merged).
 
 #. To install https://github.com/glencoesoftware/ome-omero-roitool, follow the https://github.com/glencoesoftware/ome-omero-roitool/blob/master/README.md - basically, you will have to 
 
 
-Clone the repository
+#. Clone the repository::
 
-git clone git@github.com:glencoesoftware/ome-omero-roitool.git
+      git clone git@github.com:glencoesoftware/ome-omero-roitool.git
+      cd ome-omero-roitool
 
-cd ome-omero-roitool
+#. Run the Gradle build and utilize the artifacts as required::
 
-Run the Gradle build and utilize the artifacts as required::
+      ./gradlew installDist cd build/install # If you do not have gradle installed
+      gradle build -x test # If you have gradle installed
+      cd build/distributions/
+      unzip ome-omero-roitool-0.2.0-SNAPSHOT.zip
+      cd ome-omero-roitool-0.2.0-SNAPSHOT
 
-./gradlew installDist cd build/install ...
+#. On Mac or Linux, run::
 
-(Note: If you have gradle installed, ``gradle build -x test`` is easier option. After that, ``cd build/distributions/`` and ``unzip ome-omero-roitool-0.2.0-SNAPSHOT.zip``. Then ``cd ome-omero-roitool-0.2.0-SNAPSHOT``).
+      ./ome-omero-roitool import -h
 
-#. Find the built artifacts, unzip them and ``cd ome-omero-roitool-0.2.0-SNAPSHOT/bin``.
+#. On Windows, run::
 
-#. On Mac or Linux, run ``./ome-omero-roitool import -h``. On Windows, run ``ome-omero-roitool.bat import -h``. This will give you a helpful output about how ot costruct the import command.
+      ome-omero-roitool.bat import -h
 
-#. For example, you can run ``./ome-omero-roitool import --password $PASSWORD --port 4064 --server $SERVER --username $USERNAME $IMAGE_ID $PATH/TO/OME-XML/FILE``. To associate the ROIs with the correct image in OMERO, replace the ``IMAGE_ID`` parameter with the ID of the image in OMERO. You can obtain this ID for example from OMERO.iviewer (see beginning of this workflow).
+#. The ``-h`` option will give you a helpful output about how ot costruct the import command.
 
-#. After you executed the command above, go to OMERO.iviewer in your browser and view the ROIs on the image (screenshot).
+#. To achieve the import of the ROIs to OMERO, you can run::
 
-#. Note: Because of the impossibility to set a different fill and stroke color, the ROIs are appearing as filled in with the same color as the stroke color. You can rectify this in OMERO.iviewer if you first select all the ROIs in the table, then go to color picker on the top and click on the downward facing arrow. Then, set the opeacity slider in the bottom of the widget to the very left (= zero opacity). Click Save to save the changes.
+      ./ome-omero-roitool import --password $PASSWORD --port 4064 --server $SERVER --username $USERNAME $IMAGE_ID $PATH/TO/OME-XML/FILE
+
+#. In the above command, replace the ``$IMAGE_ID`` parameter with the ID of the image in OMERO. You can obtain this ID for example from OMERO.iviewer (see beginning of this workflow).
+
+#. After you executed the ``import`` command above, go to OMERO.iviewer in your browser and view the ROIs on the image (screenshot).
+
+#. Note: QuPath 0.2.0-m8 or earlier does not allow to set a different fill and stroke color when exporting the ROIs from QuPath to OME-XML. Thus, after import to OMERO, the ROIs are appearing as filled in with the same color as the stroke color (screenshot). You can rectify this in OMERO.iviewer if you first select all the ROIs in the table, then go to color picker on the top of the right-hand pane (screenshot) and click on the downward facing arrow. Then, set the opeacity slider in the bottom of the widget to the very left (= zero opacity), (screenshot) and click *Choose*. Click *Save* to save the changes. After you deselect the ROIs, you will see the ROIs with the same stroke and fill as QuPath originally created them (screenshot).
 
 [screenshot]
 
