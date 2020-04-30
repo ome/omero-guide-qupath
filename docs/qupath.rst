@@ -4,25 +4,25 @@ Analyze OMERO data using QuPath
 QuPath is a cross-platform software application designed for bioimage analysis - and specifically to meet the needs of whole slide image analysis and digital pathology.
 See \ https://github.com/qupath/qupath/wiki/
 
-#.  In OMERO.web, identify an image in the idr0018 project and the dataset Baz1a-14-100-gastrointestinal.
+#. In OMERO.web, identify an image in the idr0018 project and the dataset Baz1a-14-100-gastrointestinal.
 
-#.  Select the first image and double-click on it. This will open the image in OMERO.iviewer.
+#. Select the first image and double-click on it. This will open the image in OMERO.iviewer.
 
-#.  In the OMERO.iviewer tab, select the whole URL in the address bar of your browser and copy it, for example using right-click and Copy.
+#. In the OMERO.iviewer tab, select the whole URL in the address bar of your browser and copy it, for example using right-click and Copy.
 
-#.  In the QuPath, select *File > Open URL...* and paste the link into the dialog.
+#. In QuPath, select *File > Open URL...* and paste the link into the dialog.
 
   .. image:: images/qupath1.png
 
-#.  Click *OK*. In the following dialog, enter your credentials.
+#. Click *OK*. In the following dialog, enter your credentials.
 
   .. image:: images/qupath2.png
 
-#.  Set image type to *Brightfield H&E* in the following dialog.
+#. Set image type to *Brightfield H&E* in the following dialog.
 
-#.  Find a region with well-defined cells and nuclei in the image, zoom in.
+#. Find a region with well-defined cells and nuclei in the image, zoom in.
 
-#. Draw an ROI Annotation which denotes the region in which the cells will be detected using the *Wand* tool 
+#. Draw an ROI Annotation which denotes the region in which the cells will be detected using the *Wand* tool. 
 
   .. image:: images/qupath3.png
 
@@ -30,25 +30,25 @@ See \ https://github.com/qupath/qupath/wiki/
 
   .. image:: images/qupath4.png
 
-#. Select *Analyze > Cell analysis > Cell* detection
+#. Select *Analyze > Cell analysis > Cell* detection.
 
 #. You can adjust the parameters. Click *Run*. This will draw red ROIs around cells and nuclei inside your ROI Annotation.
 
   .. image:: images/qupath5.png
 
-#. Select *Measure > Show detection measurements*
+#. Select *Measure > Show detection measurements*.
 
   .. image:: images/qupath6.png
 
 #. Note: You can save the results locally by clicking *Save* in the bottom right of the *Detection results table*.
 
-#. In following steps, we will show how to transfer the ROIs your just created in QuPath into OMERO ROIs and attach them to the image in OMERO.
+#. In the following steps, we will show how to convert the ROIs your just created in QuPath into OMERO ROIs and attach them to the image in OMERO.
 
-#. First, use the ROI OME-XML export script to export your ROIs from QuPath into OME-XML file. https://github.com/glencoesoftware/ome-omero-roitool/blob/master/QuPath.scripts/OME_XML_export.groovy#L23
+#. First, use the ROI OME-XML export script to export your ROIs from QuPath into OME-XML file. See https://github.com/glencoesoftware/ome-omero-roitool/blob/master/QuPath.scripts/OME_XML_export.groovy#L23
 
-#. Note: The version of the ROI OME-XML export script you have to use depends on your QuPath version. For QuPath 0.2.0-m9 or earlier versions, use https://github.com/glencoesoftware/ome-omero-roitool/blob/master/QuPath.scripts/OME_XML_export.groovy. For QuPath 0.2.0-m10 use https://github.com/glencoesoftware/ome-omero-roitool/blob/d73f14a68e35eb1f9d1cc810255a42e4fa46d283/QuPath.scripts/OME_XML_export.groovy.
+#. Note: The version of the ROI OME-XML export script you have to use depends on the version of QuPath you are using. For QuPath 0.2.0-m9 or earlier versions, use https://github.com/glencoesoftware/ome-omero-roitool/blob/master/QuPath.scripts/OME_XML_export.groovy. For QuPath 0.2.0-m10 use https://github.com/glencoesoftware/ome-omero-roitool/blob/d73f14a68e35eb1f9d1cc810255a42e4fa46d283/QuPath.scripts/OME_XML_export.groovy.
 
-#. In QuPath, go to *Automate > Show script editor*
+#. In QuPath, go to *Automate > Show script editor*.
 
 #. Copy all the content of the scipt from https://raw.githubusercontent.com/glencoesoftware/ome-omero-roitool/master/QuPath.scripts/OME_XML_export.groovy and paste it into the script editor of QuPath. 
 
@@ -88,7 +88,7 @@ See \ https://github.com/qupath/qupath/wiki/
 
       ome-omero-roitool.bat import -h
 
-#. The ``-h`` option will give you a helpful output about how ot costruct the import command.
+#. The ``-h`` option will give you a helpful output about how ot construct the import command.
 
 #. To achieve the import of the ROIs to OMERO, you can run::
 
@@ -108,7 +108,7 @@ See \ https://github.com/qupath/qupath/wiki/
 
   .. image:: images/qupath9.png
 
-#. Then, set the opeacity slider in the bottom of the widget to the very left (= zero opacity), and click *Choose*.
+#. Then, set the opacity slider in the bottom of the widget to the very left (= zero opacity), and click *Choose*.
 
   .. image:: images/qupath10.png
 
