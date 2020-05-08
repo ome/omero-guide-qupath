@@ -79,6 +79,7 @@ See \ https://github.com/qupath/qupath/wiki/
       cd build/distributions/
       unzip ome-omero-roitool-0.2.0-SNAPSHOT.zip
       cd ome-omero-roitool-0.2.0-SNAPSHOT
+      cd bin
 
 #. On Mac or Linux, run::
 
