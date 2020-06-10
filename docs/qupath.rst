@@ -44,41 +44,18 @@ See \ https://github.com/qupath/qupath/wiki/
 
 #. In the following steps, we will show how to convert the ROIs your just created in QuPath into OMERO ROIs and attach them to the image in OMERO.
 
-#. First, use the ROI OME-XML export script to export your ROIs from QuPath into OME-XML file. See https://github.com/glencoesoftware/ome-omero-roitool/blob/master/QuPath.scripts/OME_XML_export.groovy#L23
+#. First, use the ROI OME-XML export script to export your ROIs from QuPath into OME-XML file. Find the export script in https://github.com/glencoesoftware/ome-omero-roitool/tree/master/src/dist/QuPath.scripts
 
-#. Note: The version of the ROI OME-XML export script you have to use depends on the version of QuPath you are using. For QuPath 0.2.0-m9 or earlier versions, use https://github.com/glencoesoftware/ome-omero-roitool/blob/master/QuPath.scripts/OME_XML_export.groovy. For QuPath 0.2.0-m10 use https://github.com/glencoesoftware/ome-omero-roitool/blob/d73f14a68e35eb1f9d1cc810255a42e4fa46d283/QuPath.scripts/OME_XML_export.groovy.
+#. Follow the [instructions in the README from step 3. onwards](https://github.com/glencoesoftware/ome-omero-roitool#export-ome-xml-rois) to execute the export script in QuPath. This will produce a local OME-XML file.
 
-#. In QuPath, go to *Automate > Show script editor*.
+#. Note: If you run a *Cell detection* in QuPath, the nuclei ROIs will be drawn as well as the ROIs around the cells. The ROI OME-XML export script will export these nuclei ROIs as well. Later in this workflow, they will appear as a second Shape in the ROI belonging to the particular cell.
 
-#. Copy all the content of the scipt from https://raw.githubusercontent.com/glencoesoftware/ome-omero-roitool/master/QuPath.scripts/OME_XML_export.groovy and paste it into the script editor of QuPath. 
+#. Import the OME-XML with the ROIs from QuPath into OMERO. These steps must be run on a command line. Find the latest release of the ome-omero-roitool on https://github.com/glencoesoftware/ome-omero-roitool/releases. From there, download the ome-omero-roitool-xxx.zip. Open your terminal window. 
 
-#. In QuPath, with Script editor window still highlighted, select *Run > Run* in the top menu. There will be some output in the console of the script editor (the window just under where you pasted your script).
+#. Unzip the downloaded file and cd into the resulting folder as follows::
 
-#. Note: The large areas highlighted as yellow (called ROI Annotations above here, but Annotations in QuPath), which define the areas where you ran the *Cell detection* will not be recognized by the OME-XML export script properly if you use *Wand* tool to draw them, and will not be written into the OME-XML file correctly. Thus, they will later not appear as ROIs in OMERO. This is signified by lines such as shown below this block, which appear in the console output. You can ignore them, the ROIs you just created from the *Cell detection* will be written correctly::
-
-      INFO: ROI type: class qupath.lib.roi.GeometryROI INFO: Unsupported ROI type: Geometry (117832, 22510, 562, 330)
-
-#. Note: If you run a *Cell detection* in QuPath, the nuclei ROIs will be drawn as well as the ROIs around the cells. The ROI OME-XML export script will ignore the ROIs around the nuclei, exporting only the ROIs around the cells.
-
-#. A new window will appear, in which you specify the name and location (on your local machine) of the output OME-XML file. Click Save.
-
-#. Import the OME-XML with the ROIs from QuPath into OMERO. These steps must be run on a command line. Open your terminal and install the ome-omero-roitool from https://github.com/glencoesoftware/ome-omero-roitool (note: in order to work with 5.6.x servers, https://github.com/glencoesoftware/ome-omero-roitool/pull/12 must be merged).
-
-#. To install https://github.com/glencoesoftware/ome-omero-roitool, follow the https://github.com/glencoesoftware/ome-omero-roitool/blob/master/README.md - basically, you will have to 
-
-
-#. Clone the repository::
-
-      git clone git@github.com:glencoesoftware/ome-omero-roitool.git
-      cd ome-omero-roitool
-
-#. Run the Gradle build and utilize the artifacts as required::
-
-      ./gradlew installDist cd build/install # If you do not have gradle installed
-      gradle build -x test # If you have gradle installed
-      cd build/distributions/
-      unzip ome-omero-roitool-0.2.0-SNAPSHOT.zip
-      cd ome-omero-roitool-0.2.0-SNAPSHOT
+      unzip ome-omero-roitool-xxx.zip
+      cd ome-omero-roitool-xxx
       cd bin
 
 #. On Mac or Linux, run::
@@ -101,16 +78,4 @@ See \ https://github.com/qupath/qupath/wiki/
 
   .. image:: images/qupath7.png
 
-#. Note: QuPath 0.2.0-m8 or earlier does not allow to set a different fill and stroke color when exporting the ROIs from QuPath to OME-XML. Thus, after import to OMERO, the ROIs are appearing as filled in with the same color as the stroke color.
-
-  .. image:: images/qupath8.png
-
-#. You can rectify this appearance of the ROIs in OMERO.iviewer if you first select all the ROIs in the table, then go to color picker on the top of the right-hand pane and click on the downward facing arrow.
-
-  .. image:: images/qupath9.png
-
-#. Then, set the opacity slider in the bottom of the widget to the very left (= zero opacity), and click *Choose*.
-
-  .. image:: images/qupath10.png
-
-#. Click *Save* to save the changes. After you deselect the ROIs, you will see the ROIs with red stroke and no fill, similarly to how QuPath was showing these ROIs.
+#. Note: The "Annotation" from QuPath is displayed as a mask ROI in OMERO.iviewer. Masks cannot be edited in OMERO.iviewer at the moment, but they can be viewed. The mask, when selected in the ROI table will display a blue bounding box around the region on the image.
