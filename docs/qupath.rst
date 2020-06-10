@@ -12,33 +12,29 @@ See \ https://github.com/qupath/qupath/wiki/
 
 #. In QuPath, select *File > Open URL...* and paste the link into the dialog.
 
-  .. image:: images/qupath1.png
+   |image0|
 
 #. Click *OK*. In the following dialog, enter your credentials.
 
-  .. image:: images/qupath2.png
+   |image1|
 
 #. Set image type to *Brightfield H&E* in the following dialog.
 
 #. Find a region with well-defined cells and nuclei in the image, zoom in.
 
-#. Draw an ROI Annotation which denotes the region in which the cells will be detected using the *Wand* tool. 
+#. Draw an ROI Annotation which denotes the region in which the cells will be detected using the *Wand* tool |image2|.
 
-  .. image:: images/qupath3.png
-
-#. Adjust your ROI Annotation using the *Brush* tool.
-
-  .. image:: images/qupath4.png
+#. Adjust your ROI Annotation using the *Brush* tool |image3|.
 
 #. Select *Analyze > Cell analysis > Cell* detection.
 
 #. You can adjust the parameters. Click *Run*. This will draw red ROIs around cells and nuclei inside your ROI Annotation.
 
-  .. image:: images/qupath5.png
+   |image4|
 
 #. Select *Measure > Show detection measurements*.
 
-  .. image:: images/qupath6.png
+   |image5|
 
 #. Note: You can save the results locally by clicking *Save* in the bottom right of the *Detection results table*.
 
@@ -80,5 +76,34 @@ See \ https://github.com/qupath/qupath/wiki/
 
 #. After you executed the ``import`` command above, go to OMERO.iviewer in your browser and view the ROIs on the image.  The "Annotation" from QuPath is displayed as a mask ROI in OMERO.iviewer (the yellow ROI in the screenshot below). Masks cannot be edited in OMERO.iviewer at the moment, but they can be viewed. The mask, when selected displays a blue bounding box around the "Annotation" on the image.
 
-  .. image:: images/qupath7.png
+   |image6|
+
+.. |image0| image:: images/qupath1.png
+   :width: 4in
+   :height: 1in
+
+.. |image1| image:: images/qupath2.png
+   :width: 4in
+   :height: 2in
+
+.. |image2| image:: images/qupath3.png
+   :width: 0.3in
+   :height: 0.3in
+
+.. |image3| image:: images/qupath4.png
+   :width: 0.3in
+   :height: 0.3in
+
+.. |image4| image:: images/qupath5.png
+   :width: 8in
+   :height: 5in
+
+.. |image5| image:: images/qupath6.png
+   :width: 5in
+   :height: 2.5in
+
+.. |image6| image:: images/qupath7.png
+   :width: 8in
+   :height: 6.5in
+
 
