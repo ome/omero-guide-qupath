@@ -46,11 +46,15 @@ See \ https://github.com/qupath/qupath/wiki/
 
 #. First, use the ROI OME-XML export script to export your ROIs from QuPath into OME-XML file. Find the export script in https://github.com/glencoesoftware/ome-omero-roitool/tree/master/src/dist/QuPath.scripts
 
-#. Follow the [instructions in the README from step 3. onwards](https://github.com/glencoesoftware/ome-omero-roitool#export-ome-xml-rois) to execute the export script in QuPath. This will produce a local OME-XML file.
+#. Copy the script text.
 
-#. Note: If you run a *Cell detection* in QuPath, the nuclei ROIs will be drawn as well as the ROIs around the cells. The ROI OME-XML export script will export these nuclei ROIs as well. Later in this workflow, they will appear as a second Shape in the ROI belonging to the particular cell.
+#. In QuPath, open *Automate > Show script editor*
 
-#. Import the OME-XML with the ROIs from QuPath into OMERO. These steps must be run on a command line. Find the latest release of the ome-omero-roitool on https://github.com/glencoesoftware/ome-omero-roitool/releases. From there, download the ome-omero-roitool-xxx.zip. Open your terminal window. 
+#. Follow the instructions from step 3. onwards in https://github.com/glencoesoftware/ome-omero-roitool#export-ome-xml-rois to execute the export script in QuPath. This will produce a local OME-XML file.
+
+#. Note: If you run a *Cell detection* in QuPath, the nuclei ROIs will be drawn as well as the ROIs around the cells. The ROI OME-XML export script will export both the ROIs around the cells as well as the nuclei ROIs. In OMERO, they will appear as two Shapes inside the ROI belonging to the particular cell.
+
+#. Import the OME-XML with the ROIs from QuPath into OMERO. These steps must be run on a command line. Find the latest release of the ome-omero-roitool on https://github.com/glencoesoftware/ome-omero-roitool/releases. From there, download the ``ome-omero-roitool-xxx.zip``. Open your terminal window.
 
 #. Unzip the downloaded file and cd into the resulting folder as follows::
 
@@ -74,8 +78,7 @@ See \ https://github.com/qupath/qupath/wiki/
 
 #. In the above command, replace the ``$IMAGE_ID`` parameter with the ID of the image in OMERO. You can obtain this ID for example from OMERO.iviewer (see beginning of this workflow).
 
-#. After you executed the ``import`` command above, go to OMERO.iviewer in your browser and view the ROIs on the image.
+#. After you executed the ``import`` command above, go to OMERO.iviewer in your browser and view the ROIs on the image.  The "Annotation" from QuPath is displayed as a mask ROI in OMERO.iviewer (the yellow ROI in the screenshot below). Masks cannot be edited in OMERO.iviewer at the moment, but they can be viewed. The mask, when selected displays a blue bounding box around the "Annotation" on the image.
 
   .. image:: images/qupath7.png
 
-#. Note: The "Annotation" from QuPath is displayed as a mask ROI in OMERO.iviewer. Masks cannot be edited in OMERO.iviewer at the moment, but they can be viewed. The mask, when selected in the ROI table will display a blue bounding box around the region on the image.
