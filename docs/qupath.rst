@@ -1,8 +1,46 @@
 Analyze OMERO data using QuPath
 ===============================
 
+Description:
+------------
+
 QuPath is a cross-platform software application designed for bioimage analysis - and specifically to meet the needs of whole slide image analysis and digital pathology.
 See \ https://github.com/qupath/qupath/wiki/
+
+We will show:
+
+- How to open an image from OMERO server in QuPath
+
+- How to draw annotations and perform simple Cell detection in QuPath
+
+- How to export the ROIs from QuPath as OME-XML
+
+- How to import the OME-XML to the OMERO.server and attach the QuPath ROIs to the original image in OMERO
+
+**Resources:**
+--------------
+
+- Data: example images from
+
+  - IDR data http://idr.openmicroscopy.org/webclient/?show=project-101
+
+-  Plugin ``ome-omero-roitool`` for import and export of ROIs to or from OMERO using OME-XML format
+
+   - https://github.com/glencoesoftware/ome-omero-roitool
+
+-  Scripts for export and import of ROIs from/to QuPath in OME-XML format
+
+   - https://github.com/glencoesoftware/ome-omero-roitool/tree/master/src/dist/QuPath.scripts
+
+
+Setup:
+------
+
+Download QuPath v0.2.0 or later from https://qupath.github.io/.
+
+
+**Step-by-step:**
+-----------------
 
 #. In OMERO.web, identify an image in the idr0018 project and the dataset Baz1a-14-100-gastrointestinal.
 
@@ -96,7 +134,7 @@ See \ https://github.com/qupath/qupath/wiki/
 
 .. |image4| image:: images/qupath5.png
    :width: 8in
-   :height: 5in
+   :height: 4.4in
 
 .. |image5| image:: images/qupath6.png
    :width: 5in
