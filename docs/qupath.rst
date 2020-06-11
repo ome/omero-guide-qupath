@@ -39,7 +39,7 @@ Setup:
 Download QuPath v0.2.0 or later from https://qupath.github.io/.
 
 
-**Step-by-step:**
+Step-by-step:
 -----------------
 
 #. In OMERO.web, identify an image in the idr0018 project and the dataset Baz1a-14-100-gastrointestinal.
@@ -143,5 +143,4 @@ Download QuPath v0.2.0 or later from https://qupath.github.io/.
 .. |image6| image:: images/qupath7.png
    :width: 8in
    :height: 6.5in
-
 
