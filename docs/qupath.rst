@@ -104,7 +104,7 @@ Step-by-step:
 
       ome-omero-roitool.bat import -h
 
-#. The ``-h`` option will give you a helpful output about how ot construct the import command.
+#. The ``-h`` option will give you a helpful output about how to construct the import command.
 
 #. To achieve the import of the ROIs to OMERO, you can run::
 
