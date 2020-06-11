@@ -90,7 +90,7 @@ Step-by-step:
 
 #. Import the OME-XML with the ROIs from QuPath into OMERO. These steps must be run on a command line. Find the latest release of the ome-omero-roitool on https://github.com/glencoesoftware/ome-omero-roitool/releases. From there, download the ``ome-omero-roitool-xxx.zip``. Open your terminal window.
 
-#. Unzip the downloaded file and cd into the resulting folder as follows::
+#. Unzip the downloaded file and go into the resulting folder as follows::
 
       unzip ome-omero-roitool-xxx.zip
       cd ome-omero-roitool-xxx
