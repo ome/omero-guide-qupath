@@ -84,7 +84,7 @@ Step-by-step:
 
 #. In QuPath, open *Automate > Show script editor*
 
-#. Follow the instructions from step 3. onwards in https://github.com/glencoesoftware/ome-omero-roitool#export-ome-xml-rois to execute the export script in QuPath. This will produce a local OME-XML file.
+#. Follow the instructions from step 3 onwards in https://github.com/glencoesoftware/ome-omero-roitool#export-ome-xml-rois to execute the export script in QuPath. This will produce a local OME-XML file.
 
 #. Note: If you run a *Cell detection* in QuPath, the nuclei ROIs will be drawn as well as the ROIs around the cells. The ROI OME-XML export script will export both the ROIs around the cells as well as the nuclei ROIs. In OMERO, they will appear as two Shapes inside the ROI belonging to the particular cell.
 
