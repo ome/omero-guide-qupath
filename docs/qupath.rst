@@ -22,7 +22,7 @@ We will show:
 
 - Data: example images from
 
-  - IDR data http://idr.openmicroscopy.org/webclient/?show=project-101
+  - IDR project reference as idr0018 http://idr.openmicroscopy.org/webclient/?show=project-101 
 
 -  Plugin ``ome-omero-roitool`` for import and export of ROIs to or from OMERO using OME-XML format
 
@@ -143,4 +143,3 @@ Step-by-step:
 .. |image6| image:: images/qupath7.png
    :width: 8in
    :height: 6.5in
-
