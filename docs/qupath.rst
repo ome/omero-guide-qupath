@@ -42,7 +42,7 @@ Download QuPath v0.2.0 or later from https://qupath.github.io/.
 Step-by-step:
 -----------------
 
-#. In OMERO.web, identify an image in the idr0018 project and the dataset Baz1a-14-100-gastrointestinal.
+#. In OMERO.web, identify an image in the idr0018 project and the dataset Baz1a-14-100-gastrointestinal comtained in that project.
 
 #. Select the first image and double-click on it. This will open the image in OMERO.iviewer.
 
