@@ -22,7 +22,7 @@ We will show:
 
 - Data: example images from
 
-  - IDR project reference as idr0018 http://idr.openmicroscopy.org/webclient/?show=project-101 
+  - IDR project referenced as idr0018 http://idr.openmicroscopy.org/webclient/?show=project-101. Note that the data also have been imported into an OMERO.server where the possibility to write annotations exists (not the IDR server itself). See the Step by Step section for further details.
 
 -  Plugin ``ome-omero-roitool`` for import and export of ROIs to or from OMERO using OME-XML format
 
@@ -41,6 +41,8 @@ Download QuPath v0.2.0 or later from https://qupath.github.io/.
 
 Step-by-step:
 -----------------
+
+#. You can go through this workflow directly with the image in the IDR, which is http://idr.openmicroscopy.org/webclient/?show=image-1920105. The QuPath will open that image without problems and not credentials are needed. Nevertheless, as you cannot write any data directly into IDR during your analysis, you will not be able to successfully import the resulting ROIs back into the OMERO in IDR. Thus, you might consider using another OMERO.server which you can write data to and upload this or another RGB large image into it.
 
 #. In OMERO.web, identify an image in the idr0018 project and the dataset Baz1a-14-100-gastrointestinal comtained in that project.
 
