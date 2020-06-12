@@ -1,8 +1,8 @@
 Analyze OMERO data using QuPath
 ===============================
 
-Description:
-------------
+Description
+-----------
 
 QuPath is a cross-platform software application designed for bioimage analysis - and specifically to meet the needs of whole slide image analysis and digital pathology.
 See \ https://github.com/qupath/qupath/wiki/
@@ -17,8 +17,8 @@ We will show:
 
 - How to import the OME-XML to the OMERO.server and attach the QuPath ROIs to the original image in OMERO
 
-**Resources:**
---------------
+Resources
+---------
 
 - Data: example images from
 
@@ -33,14 +33,14 @@ We will show:
    - https://github.com/glencoesoftware/ome-omero-roitool/tree/master/src/dist/QuPath.scripts
 
 
-Setup:
-------
+Setup
+-----
 
 Download QuPath v0.2.0 or later from https://qupath.github.io/.
 
 
-Step-by-step:
------------------
+Step-by-step
+------------
 
 #. You can go through this workflow directly with the image in the IDR, which is http://idr.openmicroscopy.org/webclient/?show=image-1920105. The QuPath will open that image without problems and not credentials are needed. Nevertheless, as you cannot write any data directly into IDR during your analysis, you will not be able to successfully import the resulting ROIs back into the OMERO in IDR. Thus, you might consider using another OMERO.server which you can write data to and upload this or another RGB large image into it.
 
