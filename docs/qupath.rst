@@ -24,7 +24,7 @@ Resources
 
   - IDR project referenced as idr0018 https://idr.openmicroscopy.org/webclient/?show=project-101. Note that the data also have been imported into an OMERO.server where the possibility to write annotations exists (not the IDR server itself). See the Step by Step section for further details.
 
--  Plugin ``ome-omero-roitool`` for import and export of ROIs to or from OMERO using OME-XML format
+-  Plugin ``ome-omero-roitool`` **v0.2.0** for import and export of ROIs to or from OMERO using OME-XML format
 
    - https://github.com/glencoesoftware/ome-omero-roitool
 
@@ -42,9 +42,9 @@ Download QuPath v0.2.0 or later from https://qupath.github.io/.
 Step-by-step
 ------------
 
-#. You can go through this workflow directly with the `image <https://idr.openmicroscopy.org/webclient/?show=image-1920105>`_ in the IDR. The QuPath will open that image without problems and not credentials are needed. Nevertheless, as you cannot write any data directly into IDR during your analysis, you will not be able to successfully import the resulting ROIs back into the OMERO in IDR. Thus, you might consider using another OMERO.server which you can write data to and upload this or another RGB large image into it.
+#. You can go through this workflow directly with the `image <https://idr.openmicroscopy.org/webclient/?show=image-1920105>`_ in the IDR. QuPath will open that image without problems and no credentials are needed. Nevertheless, as you cannot write any data directly into IDR during your analysis, you will not be able to successfully import the resulting ROIs back into the OMERO in IDR. Thus, you might consider using another OMERO.server which you can write data to and upload this or another RGB large image into it.
 
-#. In OMERO.web, identify an image in the idr0018 project and the dataset Baz1a-14-100-gastrointestinal comtained in that project.
+#. In OMERO.web, identify an image in the `idr0018 <https://idr.openmicroscopy.org/webclient/?show=project-101>`_ project and the dataset `Baz1a-14-100-gastrointestinal <https://idr.openmicroscopy.org/webclient/?show=dataset-373>`_ comtained in that project.
 
 #. Select the first image and double-click on it. This will open the image in OMERO.iviewer.
 
@@ -58,7 +58,7 @@ Step-by-step
 
    |image1|
 
-#. Set image type to *Brightfield H&E* in the following dialog.
+#. Set image type to *Brightfield H&E* in the following dialog. Click *OK*
 
 #. Find a region with well-defined cells and nuclei in the image, zoom in.
 
@@ -80,17 +80,15 @@ Step-by-step
 
 #. In the following steps, we will show how to convert the ROIs your just created in QuPath into OMERO ROIs and attach them to the image in OMERO.
 
-#. First, use the ROI OME-XML export script to export your ROIs from QuPath into OME-XML file. Find the export script in https://github.com/glencoesoftware/ome-omero-roitool/tree/master/src/dist/QuPath.scripts
+#. First, use the ROI OME-XML export script to export your ROIs from QuPath into OME-XML file. Find the export script in `QuPath.scripts <https://github.com/glencoesoftware/ome-omero-roitool/tree/v0.2.0/QuPath.scripts>`_
 
-#. Copy the script text.
+#. In QuPath, open *Automate > Show script editor* and paste the content of `OME_XML_export.groovy <https://raw.githubusercontent.com/glencoesoftware/ome-omero-roitool/v0.2.0/QuPath.scripts/OME_XML_export.groovy>`_ into the text area.
 
-#. In QuPath, open *Automate > Show script editor*
-
-#. Follow the instructions from step 3 onwards in https://github.com/glencoesoftware/ome-omero-roitool#export-ome-xml-rois to execute the export script in QuPath. This will produce a local OME-XML file.
+#. To run the script, select *Run > Run*.
 
 #. Note: If you run a *Cell detection* in QuPath, the nuclei ROIs will be drawn as well as the ROIs around the cells. The ROI OME-XML export script will export both the ROIs around the cells as well as the nuclei ROIs. In OMERO, they will appear as two Shapes inside the ROI belonging to the particular cell.
 
-#. Import the OME-XML with the ROIs from QuPath into OMERO. These steps must be run on a command line. Find the latest release of the ome-omero-roitool on https://github.com/glencoesoftware/ome-omero-roitool/releases. From there, download the ``ome-omero-roitool-xxx.zip``. Open your terminal window.
+#. Import the OME-XML with the ROIs from QuPath into OMERO. These steps must be run on a command line. Find the version of the ome-omero-roitool in on https://github.com/glencoesoftware/ome-omero-roitool/releases mentioned in Resources. From there, download the ``ome-omero-roitool-xxx.zip``. Open your terminal window.
 
 #. Unzip the downloaded file and go into the resulting folder as follows::
 
@@ -108,11 +106,11 @@ Step-by-step
 
 #. The ``-h`` option will give you a helpful output about how to construct the import command.
 
+#. In the above below, replace the ``$IMAGE_ID`` parameter with the ID of the image in OMERO. You can obtain this ID for example from OMERO.iviewer (see beginning of this workflow).
+
 #. To achieve the import of the ROIs to OMERO, you can run::
 
       ./ome-omero-roitool import --password $PASSWORD --port 4064 --server $SERVER --username $USERNAME $IMAGE_ID $PATH/TO/OME-XML/FILE
-
-#. In the above command, replace the ``$IMAGE_ID`` parameter with the ID of the image in OMERO. You can obtain this ID for example from OMERO.iviewer (see beginning of this workflow).
 
 #. After you executed the ``import`` command above, go to OMERO.iviewer in your browser and view the ROIs on the image. The "Annotation" from QuPath is displayed as a mask ROI in OMERO.iviewer (the yellow ROI in the screenshot below). Masks cannot be edited in OMERO.iviewer at the moment, but they can be viewed. The mask, when selected displays a blue bounding box around the "Annotation" on the image.
 
