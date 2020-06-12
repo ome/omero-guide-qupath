@@ -86,7 +86,7 @@ Step-by-step
 
 #. To run the script, select *Run > Run*.
 
-#. Note: If you run a *Cell detection* in QuPath, the nuclei ROIs will be drawn as well as the ROIs around the cells. The ROI OME-XML export script will export both the ROIs around the cells as well as the nuclei ROIs. In OMERO, they will appear as two Shapes inside the ROI belonging to the particular cell.
+#. Note: If you run a *Cell detection* in QuPath, the nuclei ROIs will be drawn as well as the ROIs around the cells. The ROI OME-XML export script will export both the ROIs around the cells as well as the nuclei ROIs.
 
 #. Import the OME-XML with the ROIs from QuPath into OMERO. These steps must be run on a command line. Find the version of the ome-omero-roitool in on https://github.com/glencoesoftware/ome-omero-roitool/releases mentioned in Resources. From there, download the ``ome-omero-roitool-xxx.zip``. Open your terminal window.
 
