@@ -111,6 +111,9 @@ Step-by-step
 #. To achieve the import of the ROIs to OMERO, you can run::
 
       ./ome-omero-roitool import --password $PASSWORD --port 4064 --server $SERVER --username $USERNAME $IMAGE_ID $PATH/TO/OME-XML/FILE
+    
+      
+  Note: if you are using websockets, set the port to ``443`` and the server with the protocol e.g. ``wss://outreach.openmicrocopy.org/omero-ws.``
 
 #. After you executed the ``import`` command above, go to OMERO.iviewer in your browser and view the ROIs on the image. The "Annotation" from QuPath is displayed as a mask ROI in OMERO.iviewer (the yellow ROI in the screenshot below). Masks cannot be edited in OMERO.iviewer at the moment, but they can be viewed. The mask, when selected displays a blue bounding box around the "Annotation" on the image.
 
