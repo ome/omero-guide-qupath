@@ -44,7 +44,7 @@ Step-by-step
 
 #. You can go through this workflow directly with the `image <https://idr.openmicroscopy.org/webclient/?show=image-1920105>`_ in the IDR. QuPath will open that image without problems and no credentials are needed. Nevertheless, as you cannot write any data directly into IDR during your analysis, you will not be able to successfully import the resulting ROIs back into the OMERO in IDR. Thus, you might consider using another OMERO.server which you can write data to and upload this or another RGB large image into it.
 
-#. In OMERO.web, identify an image in the `idr0018 <https://idr.openmicroscopy.org/webclient/?show=project-101>`_ project and the dataset `Baz1a-14-100-gastrointestinal <https://idr.openmicroscopy.org/webclient/?show=dataset-373>`_ comtained in that project.
+#. In OMERO.web, identify an image in the `idr0018 <https://idr.openmicroscopy.org/webclient/?show=project-101>`_ project and the dataset `Baz1a-14-100-gastrointestinal <https://idr.openmicroscopy.org/webclient/?show=dataset-373>`_ contained in that project.
 
 #. Select the first image and double-click on it. This will open the image in OMERO.iviewer.
 
@@ -54,7 +54,9 @@ Step-by-step
 
    |image0|
 
-#. Click *OK*. In the following dialog, enter your credentials.
+#. Click *OK*. 
+
+#. If you are using a link not from IDR, in the following dialog, enter your credentials.
 
    |image1|
 
@@ -76,7 +78,7 @@ Step-by-step
 
    |image5|
 
-#. Note: You can save the results locally by clicking *Save* in the bottom right of the *Detection results table*.
+#. Note: You can save the results locally by clicking *Save* in the bottom right of the *Detection results table*. If you are using your own server, you can upload the results and link them to the Image.
 
 #. In the following steps, we will show how to convert the ROIs your just created in QuPath into OMERO ROIs and attach them to the image in OMERO.
 
