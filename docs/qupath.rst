@@ -56,7 +56,7 @@ Step-by-step
 
 #. Click *OK*. 
 
-#. If you are using a link not from IDR, in the following dialog, enter your credentials.
+#. If you are using a link not from IDR, but from a different OMERO.server protected by credentials, in the following dialog, enter your credentials.
 
    |image1|
 
