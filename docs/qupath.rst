@@ -24,13 +24,13 @@ Resources
 
   - IDR project referenced as idr0018 https://idr.openmicroscopy.org/webclient/?show=project-101. Note that the data also have been imported into an OMERO.server where the possibility to write annotations exists (not the IDR server itself). See the Step by Step section for further details.
 
--  Plugin ``ome-omero-roitool`` **v0.2.0** for import and export of ROIs to or from OMERO using OME-XML format
+-  Plugin ``ome-omero-roitool`` **v0.2.1** for import and export of ROIs to or from OMERO using OME-XML format
 
    - https://github.com/glencoesoftware/ome-omero-roitool
 
 -  Scripts for export and import of ROIs from/to QuPath in OME-XML format
 
-   - https://github.com/glencoesoftware/ome-omero-roitool/tree/master/src/dist/QuPath.scripts
+   - https://github.com/glencoesoftware/ome-omero-roitool/tree/v0.2.1/src/dist/QuPath.scripts
 
 
 Setup
@@ -82,9 +82,9 @@ Step-by-step
 
 #. In the following steps, we will show how to convert the ROIs your just created in QuPath into OMERO ROIs and attach them to the image in OMERO.
 
-#. First, use the ROI OME-XML export script to export your ROIs from QuPath into OME-XML file. Find the export script in `QuPath.scripts <https://github.com/glencoesoftware/ome-omero-roitool/tree/v0.2.0/QuPath.scripts>`_
+#. First, use the ROI OME-XML export script to export your ROIs from QuPath into OME-XML file. Find the export script in `QuPath.scripts <https://github.com/glencoesoftware/ome-omero-roitool/tree/v0.2.1/QuPath.scripts>`_
 
-#. In QuPath, open *Automate > Show script editor* and paste the content of `OME_XML_export.groovy <https://raw.githubusercontent.com/glencoesoftware/ome-omero-roitool/v0.2.0/QuPath.scripts/OME_XML_export.groovy>`_ into the text area.
+#. In QuPath, open *Automate > Show script editor* and paste the content of `OME_XML_export.groovy <https://raw.githubusercontent.com/glencoesoftware/ome-omero-roitool/v0.2.1/QuPath.scripts/OME_XML_export.groovy>`_ into the text area.
 
 #. To run the script, select *Run > Run*.
 
