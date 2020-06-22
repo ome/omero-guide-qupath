@@ -8,6 +8,6 @@ This guide demonstrates how to analyze data stored in OMERO in QuPath.
 This can be done using the User Interface and via the scripting facility in QuPath.
 
 
-This a Sphinx based documentation. 
+This is a Sphinx based documentation. 
 If you are unfamiliar with Sphinx, we recommend that you first read 
 [Getting Started with Sphinx](https://docs.readthedocs.io/en/stable/intro/getting-started-with-sphinx.html).
