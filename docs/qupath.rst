@@ -24,19 +24,15 @@ Resources
 
   - IDR project referenced as idr0018 https://idr.openmicroscopy.org/webclient/?show=project-101. Note that the data also have been imported into an OMERO.server where the possibility to write annotations exists (not the IDR server itself). See the Step by Step section for further details.
 
--  Plugin ``ome-omero-roitool`` **v0.2.1** for import and export of ROIs to or from OMERO using OME-XML format
+-  Plugin ``ome-omero-roitool`` **v0.2.1** for import and export of ROIs to or from OMERO using OME-XML format. The ``ome-omero-roitool-xxx.zip`` under Releases also contains the scripts for export and import of ROIs from/to QuPath in OME-XML format.
 
    - https://github.com/glencoesoftware/ome-omero-roitool
-
--  Scripts for export and import of ROIs from/to QuPath in OME-XML format
-
-   - https://github.com/glencoesoftware/ome-omero-roitool/tree/v0.2.1/src/dist/QuPath.scripts
 
 
 Setup
 -----
 
-Download QuPath v0.2.0 or later from https://qupath.github.io/.
+Download QuPath v0.2.0 from https://qupath.github.io/.
 
 
 Step-by-step
@@ -82,15 +78,15 @@ Step-by-step
 
 #. In the following steps, we will show how to convert the ROIs your just created in QuPath into OMERO ROIs and attach them to the image in OMERO.
 
-#. First, use the ROI OME-XML export script to export your ROIs from QuPath into OME-XML file. Find the export script in `QuPath.scripts <https://github.com/glencoesoftware/ome-omero-roitool/tree/v0.2.1/QuPath.scripts>`_
+#. First, use the ROI OME-XML export script to export your ROIs from QuPath into OME-XML file. Find the version of ``ome-omero-roitool`` mentioned in Resources on `ome-omero-roitool releases <https://github.com/glencoesoftware/ome-omero-roitool/releases>`_, and from there download the ``ome-omero-roitool-xxx.zip``. The downloaded zip contains both the plugin and the QuPath scripts needed for this workflow.
 
-#. In QuPath, open *Automate > Show script editor* and paste the content of `OME_XML_export.groovy <https://raw.githubusercontent.com/glencoesoftware/ome-omero-roitool/v0.2.1/QuPath.scripts/OME_XML_export.groovy>`_ into the text area.
+#. Unzip the downloaded artifact and drag and drop the ``OME_XML_export.groovy`` into your QuPath.
 
 #. To run the script, select *Run > Run*.
 
 #. Note: If you run a *Cell detection* in QuPath, the nuclei ROIs will be drawn as well as the ROIs around the cells. The ROI OME-XML export script will export both the ROIs around the cells as well as the nuclei ROIs.
 
-#. Import the OME-XML with the ROIs from QuPath into OMERO. These steps must be run on a command line. Find the version of the ome-omero-roitool in on https://github.com/glencoesoftware/ome-omero-roitool/releases mentioned in Resources. From there, download the ``ome-omero-roitool-xxx.zip``. Open your terminal window.
+#. Import the OME-XML with the ROIs from QuPath into OMERO. These steps must be run on a command line. If you did not do so already, find the version of the ``ome-omero-roitool`` mentioned in Resources on https://github.com/glencoesoftware/ome-omero-roitool/releases. From there, download the ``ome-omero-roitool-xxx.zip``. Open your terminal window.
 
 #. Unzip the downloaded file and go into the resulting folder as follows::
 
@@ -115,7 +111,7 @@ Step-by-step
       ./ome-omero-roitool import --password $PASSWORD --port 4064 --server $SERVER --username $USERNAME $IMAGE_ID $PATH/TO/OME-XML/FILE
     
       
-  Note: if you are using websockets, set the port to ``443`` and the server with the protocol e.g. ``wss://outreach.openmicrocopy.org/omero-ws.``
+   Note: if you are using websockets, set the port to ``443`` and the server with the protocol e.g. ``wss://outreach.openmicrocopy.org/omero-ws.``
 
 #. After you executed the ``import`` command above, go to OMERO.iviewer in your browser and view the ROIs on the image. The "Annotation" from QuPath is displayed as a mask ROI in OMERO.iviewer (the yellow ROI in the screenshot below). Masks cannot be edited in OMERO.iviewer at the moment, but they can be viewed. The mask, when selected displays a blue bounding box around the "Annotation" on the image.
 
