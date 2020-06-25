@@ -24,7 +24,7 @@ Resources
 
   - IDR project referenced as idr0018 https://idr.openmicroscopy.org/webclient/?show=project-101. Note that the data also have been imported into an OMERO.server where the possibility to write annotations exists (not the IDR server itself). See the Step by Step section for further details.
 
--  Plugin ``ome-omero-roitool`` **v0.2.1** for import and export of ROIs to or from OMERO using OME-XML format. The ``ome-omero-roitool-xxx.zip`` under Releases also contains the scripts for export and import of ROIs from/to QuPath in OME-XML format.
+-  Plugin ``ome-omero-roitool`` **v0.2.1** for import and export of ROIs to or from OMERO using OME-XML format. The ``ome-omero-roitool-xxx.zip`` under Releases also contains the scripts for export and import of ROIs from/to QuPath in OME-XML format. For precise installation steps, see below the ``Step-by-step`` section.
 
    - https://github.com/glencoesoftware/ome-omero-roitool
 
@@ -64,7 +64,7 @@ Step-by-step
 
 #. Adjust your ROI Annotation using the *Brush* tool |image3|.
 
-#. Select *Analyze > Cell analysis > Cell* detection.
+#. Select *Analyze > Cell detection > Cell* detection.
 
 #. You can adjust the parameters. Click *Run*. This will draw red ROIs around cells and nuclei inside your ROI Annotation.
 
