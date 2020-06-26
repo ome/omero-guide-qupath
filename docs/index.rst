@@ -9,3 +9,8 @@ Contents:
    :maxdepth: 1
    
    qupath
+
+Contribute
+----------
+
+Changes to the documentation or the materials should be made directly in the `omero-guide-qupath repository <https://github.com/ome/omero-guide-qupath>`_.
