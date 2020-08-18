@@ -77,7 +77,9 @@ Step-by-step
 
 #. To draw new ROIs or annotations in QuPath, find a region with well-defined cells and nuclei in the image, zoom in.
 
-#. Draw an ``ROI Annotation`` which denotes the region in which the cells will be detected using the ``Wand`` tool |image2|.
+#. Draw an ``ROI Annotation`` which denotes the region in which the cells will be detected using the ``Wand`` tool |image2|. 
+
+#. Note that in case the ``ROI Annotation`` is encompassing a very large area, you might later get performance problems with the ``OME_XML_export.groovy`` script which exports the ``ROI Annotation`` in ome-xml format, because this script is attempting to export the ``ROI Annotation`` as a mask, see below.
 
 #. Adjust your ROI Annotation using the ``Brush`` tool |image3|.
 
