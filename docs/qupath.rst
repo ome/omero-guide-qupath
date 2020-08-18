@@ -25,7 +25,7 @@ Resources
   - IDR project referenced as `idr0018 <https://idr.openmicroscopy.org/webclient/?show=project-101>`_. Note that the data also have been imported into an OMERO.server where the possibility to write annotations exists (not the IDR server itself). See the ``Step-by-step`` section for further details.
 
 
--  Plugin ``ome-omero-roitool`` **v0.2.1** for import and export of ROIs to or from OMERO using OME-XML format. The ``ome-omero-roitool-xxx.zip`` under Releases also contains the scripts for export and import of ROIs from/to QuPath in OME-XML format. For precise installation steps, see below the ``Step-by-step`` section.
+-  Plugin ``ome-omero-roitool`` **v0.2.2** for import and export of ROIs to or from OMERO using OME-XML format. The ``ome-omero-roitool-xxx.zip`` under Releases also contains the scripts for export and import of ROIs from/to QuPath in OME-XML format. For precise installation steps, see below the ``Step-by-step`` section.
 
    - https://github.com/glencoesoftware/ome-omero-roitool
 
@@ -33,7 +33,7 @@ Resources
 Setup
 -----
 
-Download QuPath v0.2.0 from https://qupath.github.io/.
+Download QuPath v0.2.2 from https://qupath.github.io/.
 
 
 Step-by-step
@@ -66,6 +66,8 @@ Step-by-step
 #. If you are using a link not from IDR, but from a different OMERO.server protected by credentials, in the following dialog, enter your credentials.
 
    |image1|
+
+#. Click ``Import``.
 
 #. The image thumbnail will appear in the left-hand pane list of the QuPath Project. Click on that thumbnail to open the image in full viewer in central pane of QuPath.
 
