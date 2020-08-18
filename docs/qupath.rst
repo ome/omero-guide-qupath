@@ -69,7 +69,7 @@ Step-by-step
 
 #. Click ``Import``.
 
-#. The image thumbnail will appear in the left-hand pane list of the QuPath Project. Click on that thumbnail to open the image in full viewer of QuPath.
+#. The image thumbnail will appear in the left-hand pane list of the QuPath Project. Click on that thumbnail to open the image in QuPath's full viewer.
 
 #. Set image type to ``Brightfield H&E`` in the following dialog. Click ``OK``.
 
