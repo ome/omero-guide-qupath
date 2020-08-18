@@ -79,7 +79,7 @@ Step-by-step
 
 #. Draw an ``ROI Annotation`` which denotes the region in which the cells will be detected using the ``Wand`` tool |image2|. 
 
-#. Note that in case the ``ROI Annotation`` is encompassing a very large area, you might later get performance problems with the ``OME_XML_export.groovy`` script which exports the ``ROI Annotation`` in ome-xml format, because this script is attempting to export the ``ROI Annotation`` as a mask, see below.
+#. Note that if the ``ROI Annotation`` is encompassing a very large area, you might later get performance problems with the ``OME_XML_export.groovy`` script which exports the ``ROI Annotation`` in ome-xml format, because this script is attempting to export the ``ROI Annotation`` as a mask, see below.
 
 #. Adjust your ROI Annotation using the ``Brush`` tool |image3|.
 
