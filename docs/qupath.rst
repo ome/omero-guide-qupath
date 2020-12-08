@@ -22,7 +22,7 @@ Resources
 
 - Data: example images from
 
-  - IDR project referenced as `idr0018 <https://idr.openmicroscopy.org/webclient/?show=project-101>`_. Note that the data also have been imported into an OMERO.server where the possibility to write annotations exists (not the IDR server itself). See the ``Step-by-step`` section for further details.
+  - IDR project referenced as `idr0018 <https://idr.openmicroscopy.org/search/?query=Name:idr0018>`_. Note that the data also have been imported into an OMERO.server where the possibility to write annotations exists (not the IDR server itself). See the ``Step-by-step`` section for further details.
 
 
 -  Plugin ``ome-omero-roitool`` **v0.2.2** for import and export of ROIs to or from OMERO using OME-XML format. The ``ome-omero-roitool-xxx.zip`` under Releases also contains the scripts for export and import of ROIs from/to QuPath in OME-XML format. For precise installation steps, see below the ``Step-by-step`` section.
@@ -41,7 +41,7 @@ Step-by-step
 
 #. You can go through this workflow directly with the `image <https://idr.openmicroscopy.org/webclient/?show=image-1920105>`_ in the IDR. QuPath will open that image without problems and no credentials are needed. Nevertheless, as you cannot write any data directly into IDR during your analysis, you will not be able to successfully import the resulting ROIs back into the OMERO in IDR. Thus, you might consider using another OMERO.server which you can write data to and upload this or another RGB large image into it.
 
-#. In OMERO.web, identify an image in the `idr0018 <https://idr.openmicroscopy.org/webclient/?show=project-101>`_ project and the dataset `Baz1a-14-100-gastrointestinal <https://idr.openmicroscopy.org/webclient/?show=dataset-373>`_ contained in that project.
+#. In OMERO.web, identify an image in the `idr0018 <https://idr.openmicroscopy.org/search/?query=Name:idr0018>`_ project and the dataset `Baz1a-14-100-gastrointestinal <https://idr.openmicroscopy.org/webclient/?show=dataset-373>`_ contained in that project.
 
 #. Select the first image and double-click on it. This will open the image in OMERO.iviewer, in a new tab of your browser.
 
