@@ -39,9 +39,9 @@ Download QuPath v0.2.2 from https://qupath.github.io/.
 Step-by-step
 ------------
 
-#. You can go through this workflow directly with the `image <https://idr.openmicroscopy.org/webclient/?show=image-1920105>`_ in the IDR. QuPath will open that image without problems and no credentials are needed. Nevertheless, as you cannot write any data directly into IDR during your analysis, you will not be able to successfully import the resulting ROIs back into the OMERO in IDR. Thus, you might consider using another OMERO.server which you can write data to and upload this or another RGB large image into it.
+#. You can go through this workflow directly using the Image with ID with ``1920105`` in the IDR. QuPath will open that image without problems and no credentials are needed. Nevertheless, as you cannot write any data directly into IDR during your analysis, you will not be able to successfully import the resulting ROIs back into the OMERO in IDR. Thus, you might consider using another OMERO.server which you can write data to and upload this or another RGB large image into it.
 
-#. In OMERO.web, identify an image in the `idr0018 <https://idr.openmicroscopy.org/search/?query=Name:idr0018>`_ project and the dataset `Baz1a-14-100-gastrointestinal <https://idr.openmicroscopy.org/webclient/?show=dataset-373>`_ contained in that project.
+#. In OMERO.web, identify an image in the `idr0018 <https://idr.openmicroscopy.org/search/?query=Name:idr0018>`_ project and the dataset ``Baz1a-14-100-gastrointestinal`` contained in that project.
 
 #. Select the first image and double-click on it. This will open the image in OMERO.iviewer, in a new tab of your browser.
 
