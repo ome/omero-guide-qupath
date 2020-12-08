@@ -2,6 +2,8 @@
 
 [![Documentation Status](https://readthedocs.org/projects/omero-guide-qupath/badge/?version=latest)](https://omero-guides.readthedocs.io/en/latest/qupath/docs/index.html)
 
+[![Actions Status](https://github.com/ome/omero-guide-qupath/workflows/sphinx/badge.svg)](https://github.com/ome/omero-guide-qupath/actions)
+
 The documentation is deployed at [How to use QuPath](https://omero-guides.readthedocs.io/en/latest/qupath/docs/index.html).
 
 This guide demonstrates how to analyze data stored in OMERO in QuPath.
