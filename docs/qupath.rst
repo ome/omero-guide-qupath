@@ -25,7 +25,7 @@ Resources
   - IDR project referenced as `idr0018 <https://idr.openmicroscopy.org/search/?query=Name:idr0018>`_. Note that the data also have been imported into an OMERO.server where the possibility to write annotations exists (not the IDR server itself). See the ``Step-by-step`` section for further details.
 
 
--  Plugin ``ome-omero-roitool`` **v0.2.2** for import and export of ROIs to or from OMERO using OME-XML format. The ``ome-omero-roitool-xxx.zip`` under Releases also contains the scripts for export and import of ROIs from/to QuPath in OME-XML format. For precise installation steps, see below the ``Step-by-step`` section.
+-  Plugin ``ome-omero-roitool`` **v0.2.4** for import and export of ROIs to or from OMERO using OME-XML format. The ``ome-omero-roitool-xxx.zip`` under Releases also contains the scripts for export and import of ROIs from/to QuPath in OME-XML format. For precise installation steps, see below the ``Step-by-step`` section.
 
    - https://github.com/glencoesoftware/ome-omero-roitool
 
@@ -36,11 +36,35 @@ Resources
 Setup
 -----
 
-Download QuPath v0.2.2 from https://qupath.github.io/.
-
+Download QuPath v0.3.0 from https://qupath.github.io/.
+Download the v0.3.0 OMERO extension for QuPath from https://github.com/qupath/qupath-extension-omero/releases. Install the OMERO extension as described in https://github.com/qupath/qupath-extension-omero#qupath-omero-extension.
 
 Step-by-step
 ------------
+
+Opening images with ROIs from OMERO in QuPath
+---------------------------------------------
+
+#. Create a new QuPath Project by creating a new empty folder on your machine and dropping this new folder into your QuPath window. Answer Yes when prompted.
+
+#. Create a connection to your OMERO server by clicking Extensions > OMERO > Browse server > New server and paste into the dialog a valid server address including the http or https motives, as described in https://qupath.readthedocs.io/en/latest/docs/advanced/omero.html.
+
+#. Once connection to the server is established, in the new dialog, select the correct group in OMERO in top left corner and the correct user. Expand Projects and Datasets and necessary, selecting the desired image.
+
+#. Double click on the image in the tree. In the new window, select the image again in the Image paths list, check the Import Objects checkbox and click Import.
+
+#. Click on the imported image in your QuPath project to open it in QuPath. Inspect the ROIs imported from OMERO (in case there were any ROIs on the selected image).
+
+#. Draw a new ROI using the Wand tool and click Extensions > OMERO > Send annotations to OMERO. A dialog will inform you how many ROIs are to be saved. Click OK.
+
+#. Note that there is some loss of metadata when going through the Extensions > OMERO > Send annotations to OMERO step. For example, the Class of the ROI will be indicated only by a color of the ROI in OMERO. Further, all the holes in your annotation will be ignored, as the Annotation is translated into a polygon ROI in OMERO. Also, the "derived" ROIs which were created for example by Cell detection algorithm in QuPath will be ignored when saving annotations to OMERO. The ROI in OMERO will appear as a filled-in object, as shown in the cartoon in https://qupath.readthedocs.io/en/latest/docs/advanced/omero.html.
+
+#. Close the image you opened from OMERO and open it again, to inspect the Annotations saved in the previous steps. Note the loss of metadata.
+
+#. If you want to save the "derived" ROIs in QuPath, coming for example from Cell detection, you can do it using the Command line interface workflow as described in below.
+
+Saving of derived ROIs from QuPath to OMERO
+-------------------------------------------
 
 #. You can go through this workflow directly using the Image with ID with ``1920105`` in the IDR. QuPath will open that image without problems and no credentials are needed. Nevertheless, as you cannot write any data directly into IDR during your analysis, you will not be able to successfully import the resulting ROIs back into the OMERO in IDR. Thus, you might consider using another OMERO.server which you can write data to and upload this or another RGB large image into it.
 
