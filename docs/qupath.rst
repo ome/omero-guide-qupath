@@ -29,6 +29,9 @@ Resources
 
    - https://github.com/glencoesoftware/ome-omero-roitool
 
+- Video showing the QuPath v0.3 OMERO extension https://www.youtube.com/watch?v=IffQ18ZQ3mI
+- QuPath documentation describing the v0.3 QuPath v0.3 OMERO extension https://qupath.readthedocs.io/en/latest/docs/advanced/omero.html 
+
 
 Setup
 -----
