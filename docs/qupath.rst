@@ -5,17 +5,21 @@ Description
 -----------
 
 QuPath is a cross-platform software application designed for bioimage analysis - and specifically to meet the needs of whole slide image analysis and digital pathology.
-See \ https://github.com/qupath/qupath/wiki/
+See https://github.com/qupath/qupath/wiki/
 
 We will show:
 
-- How to open an image from OMERO server in QuPath and load the ROIs from OMERO on that image
+- How to connect QuPath to OMERO.server and browse the data.
 
-- How to draw annotations and perform simple Cell detection in QuPath
+- How to open an image from OMERO.server in QuPath and load the ROIs from OMERO on that image to QuPath.
 
-- How to export the ROIs from QuPath as OME-XML
+- How to draw an annotation in QuPath on an image from OMERO and save the annotation on that image in OMERO as OMERO ROI.
 
-- How to import the OME-XML to the OMERO.server and attach the QuPath ROIs to the original image in OMERO
+- How to perform simple Cell detection in QuPath.
+
+- How to export the Cell detection ROIs from QuPath as OME-XML.
+
+- How to import the OME-XML to the OMERO.server and attach the QuPath ROIs to the original image in OMERO.
 
 Resources
 ---------
@@ -24,13 +28,12 @@ Resources
 
   - IDR project referenced as `idr0018 <https://idr.openmicroscopy.org/search/?query=Name:idr0018>`_. Note that the data also have been imported into an OMERO.server where the possibility to write annotations exists (not the IDR server itself). See the ``Step-by-step`` section for further details.
 
+- Video showing the QuPath v0.3 OMERO extension https://www.youtube.com/watch?v=IffQ18ZQ3mI
+- QuPath documentation describing the v0.3 QuPath v0.3 OMERO extension https://qupath.readthedocs.io/en/latest/docs/advanced/omero.html 
 
 -  Plugin ``ome-omero-roitool`` **v0.2.4** for import and export of ROIs to or from OMERO using OME-XML format. The ``ome-omero-roitool-xxx.zip`` under Releases also contains the scripts for export and import of ROIs from/to QuPath in OME-XML format. For precise installation steps, see below the ``Step-by-step`` section.
 
    - https://github.com/glencoesoftware/ome-omero-roitool
-
-- Video showing the QuPath v0.3 OMERO extension https://www.youtube.com/watch?v=IffQ18ZQ3mI
-- QuPath documentation describing the v0.3 QuPath v0.3 OMERO extension https://qupath.readthedocs.io/en/latest/docs/advanced/omero.html 
 
 
 Setup
@@ -45,28 +48,7 @@ Step-by-step
 Opening images with ROIs from OMERO in QuPath
 ---------------------------------------------
 
-#. Create a new QuPath Project by creating a new empty folder on your machine and dropping this new folder into your QuPath window. Answer Yes when prompted.
-
-#. Create a connection to your OMERO server by clicking Extensions > OMERO > Browse server > New server and paste into the dialog a valid server address including the http or https motives, as described in https://qupath.readthedocs.io/en/latest/docs/advanced/omero.html.
-
-#. Once connection to the server is established, in the new dialog, select the correct group in OMERO in top left corner and the correct user. Expand Projects and Datasets and necessary, selecting the desired image.
-
-#. Double click on the image in the tree. In the new window, select the image again in the Image paths list, check the Import Objects checkbox and click Import.
-
-#. Click on the imported image in your QuPath project to open it in QuPath. Inspect the ROIs imported from OMERO (in case there were any ROIs on the selected image).
-
-#. Draw a new ROI using the Wand tool and click Extensions > OMERO > Send annotations to OMERO. A dialog will inform you how many ROIs are to be saved. Click OK.
-
-#. Note that there is some loss of metadata when going through the Extensions > OMERO > Send annotations to OMERO step. For example, the Class of the ROI will be indicated only by a color of the ROI in OMERO. Further, all the holes in your annotation will be ignored, as the Annotation is translated into a polygon ROI in OMERO. Also, the "derived" ROIs which were created for example by Cell detection algorithm in QuPath will be ignored when saving annotations to OMERO. The ROI in OMERO will appear as a filled-in object, as shown in the cartoon in https://qupath.readthedocs.io/en/latest/docs/advanced/omero.html.
-
-#. Close the image you opened from OMERO and open it again, to inspect the Annotations saved in the previous steps. Note the loss of metadata.
-
-#. If you want to save the "derived" ROIs in QuPath, coming for example from Cell detection, you can do it using the Command line interface workflow as described in below.
-
-Saving of derived ROIs from QuPath to OMERO
--------------------------------------------
-
-#. You can go through this workflow directly using the Image with ID with ``1920105`` in the IDR. QuPath will open that image without problems and no credentials are needed. Nevertheless, as you cannot write any data directly into IDR during your analysis, you will not be able to successfully import the resulting ROIs back into the OMERO in IDR. Thus, you might consider using another OMERO.server which you can write data to and upload this or another RGB large image into it.
+#. You can go through this workflow directly using the Images from the IDR. Nevertheless, as you cannot write any data directly into IDR during your analysis, you will not be able to successfully import the resulting ROIs back into the OMERO in IDR. Thus, you might consider using another OMERO.server which you can write data to and upload this or another RGB large image into it.
 
 #. In OMERO.web, identify an image in the `idr0018 <https://idr.openmicroscopy.org/search/?query=Name:idr0018>`_ project and the dataset ``Baz1a-14-100-gastrointestinal`` contained in that project.
 
@@ -74,7 +56,32 @@ Saving of derived ROIs from QuPath to OMERO
 
 #. If on a read-write OMERO server (i.e. not IDR), you can draw and save some ROIs on that image in OMERO.iviewer to be able to open them in QuPath later below, see `OMERO.iviewer guide <https://omero-guides.readthedocs.io/en/latest/iviewer/docs/iviewer_rois.html>`_ for how to do it.
 
-#. In the OMERO.iviewer tab, select the whole URL in the address bar of your browser and copy it, for example using right-click and ``Copy``.
+#. Create a new QuPath Project by creating a new empty folder on your machine and dropping this new folder into the main QuPath window. Answer ``Yes`` when prompted.
+
+#. Create a connection to your OMERO server by clicking ``Extensions > OMERO > Browse server > New server`` and paste into the dialog a valid server url including the ``http`` or ``https`` motives, for example ``https://<server>.com``. Details are described in https://qupath.readthedocs.io/en/latest/docs/advanced/omero.html.
+
+#. Once connection to the server is established, in the new dialog, select the correct group in OMERO in top left corner and the correct user. Expand Projects and Datasets and necessary, selecting the image with ROIs which you worked on in previous steps.
+
+#. Double click on the image in the tree. In the new window, select the image again in the ``Image paths`` list, check the ``Import Objects`` checkbox and click Import.
+
+#. Click on the imported image in your QuPath project to open it in QuPath. Inspect the ROIs imported from OMERO.
+
+#. Still in QuPath, draw a new Annotation using the Wand tool. Select the ``Annotations`` tab, select the class from the list to the right (e.g. ``Stroma``) and click ``Set class`` . Click ``Extensions > OMERO > Send annotations to OMERO``. A dialog will inform you how many ROIs are to be saved. Click ``OK``.
+
+#. Note that there is some loss of metadata when going through the ``Extensions > OMERO > Send annotations to OMERO`` step 
+
+   - The Class of the Annotation in QuPath will be indicated only by a fill color of the ROI in OMERO. If you reopen the image in QuPath again from OMERO, the ROI fetched by QuPath from OMERO will have the correct name of the Annotation if you gave it one in QuPath, but both the Class as well as the Annotation color will be lost by the round trip to OMERO and back. 
+   
+   - All the holes in your Annotation will be ignored (filled in), as the Annotation is translated into a polygon ROI in OMERO. The ROI in OMERO will appear as a filled-in object, as shown in the cartoon in https://qupath.readthedocs.io/en/latest/docs/advanced/omero.html. 
+   
+   - The "derived" ROIs which were created for example by Cell detection algorithm in QuPath will be ignored when saving Annotations to OMERO. You can save them using the Command line interface workflow as described below. 
+
+#. Close the image you opened from OMERO and open it again, to inspect the Annotations saved in the previous steps. Note the loss of metadata.
+
+
+Saving of derived ROIs from QuPath to OMERO
+-------------------------------------------
+The QuPath plugin for OMERO described above allows saving of the "annotations" drawn in QuPath to OMERO, but it does not enable the saving of "derived" annotations, such as Cell detection ROIs, from QuPath to OMERO. For the "derived" annotations saving, you can use the following workflow.
 
 #. In QuPath, create a new Project ``File > Project > Create Project`` or open an existing one ``File > Project > Open Project``.
 
