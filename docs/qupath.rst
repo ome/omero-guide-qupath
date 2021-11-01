@@ -11,11 +11,13 @@ We will show:
 
 - How to connect QuPath to OMERO.server and browse the data.
 
-- How to open an image from OMERO.server in QuPath and load the ROIs from OMERO on that image to QuPath.
+- How to open an image including ROIs from OMERO.server in QuPath.
 
 - How to draw an annotation in QuPath on an image from OMERO and save the annotation on that image in OMERO as OMERO ROI.
 
 - How to perform simple Cell detection in QuPath.
+
+- How to save the Cell detection ROIs directly to OMERO using a script in QuPath.
 
 - How to export the Cell detection ROIs from QuPath as OME-XML.
 
@@ -45,6 +47,8 @@ Download the v0.3.0 OMERO extension for QuPath from https://github.com/qupath/qu
 Step-by-step
 ------------
 
+.. _OpeninginQuPath:
+
 Opening images with ROIs from OMERO in QuPath
 ---------------------------------------------
 
@@ -56,17 +60,23 @@ Opening images with ROIs from OMERO in QuPath
 
 #. If on a read-write OMERO server (i.e. not IDR), you can draw and save some ROIs on that image in OMERO.iviewer to be able to open them in QuPath later below, see `OMERO.iviewer guide <https://omero-guides.readthedocs.io/en/latest/iviewer/docs/iviewer_rois.html>`_ for how to do it.
 
-#. Create a new QuPath Project by creating a new empty folder on your machine and dropping this new folder into the main QuPath window. Answer ``Yes`` when prompted.
+#. Start your locally installed QuPath. Create a new QuPath Project by creating a new empty folder on your machine and dropping this new folder into the main QuPath window. Answer ``Yes`` when prompted.
 
 #. Create a connection to your OMERO server by clicking ``Extensions > OMERO > Browse server > New server`` and paste into the dialog a valid server url including the ``http`` or ``https`` motives, for example ``https://<server>.com``. Details are described in https://qupath.readthedocs.io/en/latest/docs/advanced/omero.html.
 
-#. Once connection to the server is established, in the new dialog, select the correct group in OMERO in top left corner and the correct user. Expand Projects and Datasets and necessary, selecting the image with ROIs which you worked on in previous steps.
+#. Once connection to the server is established, QuPath will pop up a new dialog. In this dialog, select the correct group in OMERO in top left corner and the correct user. Expand Projects and Datasets as necessary, selecting the image with ROIs which you worked on in previous steps.
 
 #. Double click on the image in the tree. In the new window, select the image again in the ``Image paths`` list, check the ``Import Objects`` checkbox and click Import.
 
 #. Click on the imported image in your QuPath project to open it in QuPath. Inspect the ROIs imported from OMERO.
 
-#. Still in QuPath, draw a new Annotation using the Wand tool. Select the ``Annotations`` tab, select the class from the list to the right (e.g. ``Stroma``) and click ``Set class`` . Click ``Extensions > OMERO > Send annotations to OMERO``. A dialog will inform you how many ROIs are to be saved. Click ``OK``.
+#. To draw new ROIs or annotations in QuPath, find a region with well-defined cells and nuclei in the image, zoom in.
+
+#. Draw an ``ROI Annotation`` which denotes the region in which the cells will be detected using the ``Wand`` tool |image2|. 
+
+#. Select the ``Annotations`` tab, select the class from the list to the right (e.g. ``Stroma``) and click ``Set class`` . Click ``Extensions > OMERO > Send annotations to OMERO``. A dialog will inform you how many ROIs are to be saved. Click ``OK``.
+
+#. Go to OMERO.iviewer, refresh the image and verify that the annotation was saved as an OMERO ROI (polygon).
 
 #. Note that there is some loss of metadata when going through the ``Extensions > OMERO > Send annotations to OMERO`` step 
 
@@ -74,46 +84,21 @@ Opening images with ROIs from OMERO in QuPath
    
    - All the holes in your Annotation will be ignored (filled in), as the Annotation is translated into a polygon ROI in OMERO. The ROI in OMERO will appear as a filled-in object, as shown in the cartoon in https://qupath.readthedocs.io/en/latest/docs/advanced/omero.html. 
    
-   - The "derived" ROIs which were created for example by Cell detection algorithm in QuPath will be ignored when saving Annotations to OMERO. You can save them using the Command line interface workflow as described below. 
-
-#. Close the image you opened from OMERO and open it again, to inspect the Annotations saved in the previous steps. Note the loss of metadata.
-
+   - The "derived" ROIs which were created for example by Cell detection algorithm in QuPath will be ignored when saving Annotations to OMERO. You can save them using a short script in QuPath scripting interface or using a Command Line Interface workflow, both described below. 
 
 Saving of derived ROIs from QuPath to OMERO
 -------------------------------------------
-The QuPath plugin for OMERO described above allows saving of the "annotations" drawn in QuPath to OMERO, but it does not enable the saving of "derived" annotations, such as Cell detection ROIs, from QuPath to OMERO. For the "derived" annotations saving, you can use the following workflow.
+The QuPath plugin for OMERO described above allows saving of the "annotations" drawn in QuPath to OMERO, but it does not enable the saving of "derived" annotations, such as Cell detection ROIs. To save the "derived" ROIs either :ref:`Save detection ROIs using QuPath script<Saveroiscript>` or :ref:`ome-omero-roitool<Roitool>` workflows can be used.
 
-#. In QuPath, create a new Project ``File > Project > Create Project`` or open an existing one ``File > Project > Open Project``.
 
-#. Once the Project is open, click the ``Add Images`` button above the left-hand pane in QuPath.
+.. _Saveroiscript:
 
-#. In the following dialog, check the ``Import objects`` checkbox. This tells QuPath to import all ROIs on that image from OMERO into QuPath. Note though that masks will not be imported.
+Save detection ROIs using QuPath script
+---------------------------------------
+.. warning::
+    The feature described in :ref:`Save detection ROIs using QuPath script<Saveroiscript>` was not really designed for saving large amounts of ROIs (thousands) back to OMERO. An attempt to save large amounts of ROIs might result in slow performance or other problems.    
 
-#. In the same dialog, click the ``Input URL`` button.
-
-#. Paste the link to the image you copied from the OMERO.iviewer tab (see above) into the dialog.
-
-   |image0|
-
-#. Click ``OK``.
-
-#. If you are using a link not from IDR, but from a different OMERO.server protected by credentials, in the following dialog, enter your credentials.
-
-   |image1|
-
-#. Click ``Import``.
-
-#. The image thumbnail will appear in the left-hand pane list of the QuPath Project. Click on that thumbnail to open the image in QuPath's full viewer.
-
-#. Set image type to ``Brightfield H&E`` in the following dialog. Click ``OK``.
-
-#. Find your ROIs from OMERO now in QuPath on that image.
-
-#. To draw new ROIs or annotations in QuPath, find a region with well-defined cells and nuclei in the image, zoom in.
-
-#. Draw an ``ROI Annotation`` which denotes the region in which the cells will be detected using the ``Wand`` tool |image2|. 
-
-#. Note that if the ``ROI Annotation`` is encompassing a very large area, you might later get performance problems with the ``OME_XML_export.groovy`` script which exports the ``ROI Annotation`` in ome-xml format, because this script is attempting to export the ``ROI Annotation`` as a mask, see below.
+#. Connect QuPath to OMERO, open an image from OMERO in QuPath and draw an Annotation on it as described in :ref:`Opening images with ROIs from OMERO in QuPath<OpeninginQuPath>`.
 
 #. Adjust your ROI Annotation using the ``Brush`` tool |image3|.
 
@@ -123,15 +108,36 @@ The QuPath plugin for OMERO described above allows saving of the "annotations" d
 
    |image4|
 
-#. Select ``Measure > Show detection measurements``.
+#. Click on ``Hierarchy`` tab in the left-hand pane of QuPath. Expand the Annotation you have just run the ``Cell detection`` on.
 
-   |image5|
+#. Select several detection ROIs.
 
-#. Note: You can save the results locally by clicking ``Save`` in the bottom right of the ``Detection results table``. If you are using your own server, you can upload the results and link them to the Image.
+#. Open the scripting dialog in QuPath ``Automate > Show script editor`` and paste into it the following code::
 
-#. In the following steps, we will show how to convert the ROIs your just created in QuPath into OMERO ROIs and attach them to the image in OMERO.
+      import qupath.lib.images.servers.omero.OmeroTools
+      OmeroTools.writePathObjects(getSelectedObjects(), getCurrentServer())
 
-#. First, use the ROI OME-XML export script to export your ROIs from QuPath into OME-XML file. Find the version of ``ome-omero-roitool`` mentioned in Resources on `ome-omero-roitool releases <https://github.com/glencoesoftware/ome-omero-roitool/releases>`_ and from there download the ``ome-omero-roitool-xxx.zip``. The downloaded zip contains both the plugin and the QuPath scripts needed for this workflow.
+#. From the top menu, select ``Run > Run``. This saves the detection ROIs you selected in the ``Hierarchy`` tab into OMERO.
+
+#. Go to OMERO.iviewer and refresh the image. Inspect the saved detection ROIs.
+
+.. _Roitool:
+
+Save detection ROIs using ome-omero-roitool
+-------------------------------------------
+This workflow necessritates the usage of the Command Line Interface. The limitation here are the Annotation ROIs, whcih are transformed into masks in OMERO. Although this preserves the holes in the Annotations, if the Annotation ROIs are too large, it might result in performance problems or even running out of resources on the machine where the export of the mask from QuPath is attempted.
+
+#. Connect QuPath to OMERO, open an image from OMERO in QuPath and draw an Annotation on it as described in :ref:`Opening images with ROIs from OMERO in QuPath<OpeninginQuPath>`.
+
+#. Adjust your ROI Annotation using the ``Brush`` tool |image3|.
+
+#. Select ``Analyze > Cell detection > Cell detection``.
+
+#. You can adjust the parameters. Click ``Run``. This will draw red ROIs around cells and nuclei inside your ``ROI Annotation``.
+
+   |image4|
+
+#. Use the ROI OME-XML export script to export your ROIs from QuPath into OME-XML file. Find the version of ``ome-omero-roitool`` mentioned in Resources on `ome-omero-roitool releases <https://github.com/glencoesoftware/ome-omero-roitool/releases>`_ and from there download the ``ome-omero-roitool-xxx.zip``. The downloaded zip contains both the plugin and the QuPath scripts needed for this workflow.
 
 #. Unzip the downloaded artifact and drag and drop the ``OME_XML_export.groovy`` into your QuPath.
 
