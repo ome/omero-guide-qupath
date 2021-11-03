@@ -92,7 +92,7 @@ Opening images with ROIs from OMERO in QuPath
 
 Saving of derived ROIs from QuPath to OMERO
 -------------------------------------------
-The QuPath plugin for OMERO described above allows saving of the Annotations drawn in QuPath to OMERO, but it does not enable the saving of "derived" Annotations, such as Cell detection ROIs. To save the Cell detection ROIs either :ref:`Save detection ROIs using QuPath script<Saveroiscript>` or :ref:`ome-omero-roitool<Roitool>` workflows can be used.
+The QuPath plugin for OMERO described above allows saving of the Annotations drawn in QuPath to OMERO, but it does not enable the saving of "derived" ROIs, such as Cell detection ROIs. To save the Cell detection ROIs either :ref:`Save detection ROIs using QuPath script<Saveroiscript>` or :ref:`ome-omero-roitool<Roitool>` workflows can be used.
 
 
 .. _Saveroiscript:
