@@ -62,7 +62,7 @@ Opening images with ROIs from OMERO in QuPath
 
 #. Start your locally installed QuPath. Create a new QuPath Project by creating a new empty folder on your machine and dropping this new folder into the main QuPath window. Answer ``Yes`` when prompted.
 
-#. Create a connection to your OMERO server by clicking ``Extensions > OMERO > Browse server > New server`` and paste into the dialog a valid server url including the ``http`` or ``https`` motives, for example ``https://<server>.com``. Details are described in https://qupath.readthedocs.io/en/latest/docs/advanced/omero.html.
+#. Create a connection to your OMERO server by clicking ``Extensions > OMERO > Browse server > New server`` and paste into the dialog a valid server url including the ``http`` or ``https`` motives, for example ``https://<server>.com``. Details are described in the `Browsing an OMERO server chapter <https://qupath.readthedocs.io/en/latest/docs/advanced/omero.html#browsing-an-omero-server>`_ of the QuPath documentation.
 
 #. Once connection to the server is established, QuPath will pop up a new dialog. In this dialog, select the correct group in OMERO in top left corner and the correct user. Expand Projects and Datasets as necessary, selecting the image with ROIs which you worked on in previous steps.
 
@@ -86,7 +86,7 @@ Opening images with ROIs from OMERO in QuPath
 
    - The Class of the ``Annotation`` in QuPath will be indicated only by a fill color of the ROI in OMERO. If you reopen the image in QuPath again from OMERO, the ROI fetched by QuPath from OMERO will have the correct name of the ``Annotation`` if you gave it one in QuPath, but both the Class as well as the ``Annotation`` color will be lost by the round trip to OMERO and back. 
    
-   - All the holes in your ``Annotation`` will be ignored (filled in), as the ``Annotation`` is translated into a polygon ROI in OMERO. The ROI in OMERO will appear as a filled-in object, as shown in the cartoon in https://qupath.readthedocs.io/en/latest/docs/advanced/omero.html. 
+   - All the holes in your ``Annotation`` will be ignored (filled in), as the ``Annotation`` is translated into a polygon ROI in OMERO. The ROI in OMERO will appear as a filled-in object, as shown in the cartoon in the `Send objects back to your OMERO server chapter <https://qupath.readthedocs.io/en/latest/docs/advanced/omero.html#send-objects-back-to-your-omero-server>`_ of the QuPath documentation.
    
    - The "derived" ROIs which were created for example by Cell detection algorithm in QuPath will be ignored when saving ``Annotations`` to OMERO. To save them either :ref:`Save detection ROIs using QuPath script<Saveroiscript>` or :ref:`ome-omero-roitool<Roitool>` workflows can be used. 
 
