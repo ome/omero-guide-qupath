@@ -129,7 +129,7 @@ Save detection ROIs using QuPath script
 
 Save detection ROIs using ome-omero-roitool
 -------------------------------------------
-This workflow necessritates the usage of the Command Line Interface. The limitation here are the Annotation ROIs, whcih are transformed into masks in OMERO. Although this preserves the holes in the Annotations, if the Annotation ROIs are too large, it might result in performance problems or even running out of resources on the machine where the export of the mask from QuPath is attempted.
+This workflow necessitates the usage of the Command Line Interface. The limitation here are the Annotation ROIs, which are transformed into masks in OMERO. Although this preserves the holes in the Annotations, if the Annotation ROIs are too large, it might result in performance problems or even running out of resources on the machine where the export of the mask from QuPath is attempted.
 
 #. Connect QuPath to OMERO, open an image from OMERO in QuPath and draw an ``Annotation`` on it as described in :ref:`Opening images with ROIs from OMERO in QuPath<OpeninginQuPath>`.
 
@@ -147,11 +147,10 @@ This workflow necessritates the usage of the Command Line Interface. The limitat
 
 #. Note: If you run a ``Cell detection`` in QuPath, the nuclei ROIs will be drawn as well as the ROIs around the cells. The ROI OME-XML export script will export both the ROIs around the cells as well as the nuclei ROIs.
 
-#. Import the OME-XML with the ROIs from QuPath into OMERO. These steps must be run on a command line. If you did not do so already, find the version of the ``ome-omero-roitool`` mentioned in Resources on `ome-omero-roitool releases <https://github.com/glencoesoftware/ome-omero-roitool/releases>`_. From there, download the ``ome-omero-roitool-xxx.zip``. Open your terminal window.
+#. Import the OME-XML with the ROIs from QuPath into OMERO. These steps must be run on a command line. 
 
-#. Unzip the downloaded file and go into the resulting folder as follows::
+#. Open your terminal window and ``cd`` into the directory containing the ``ome-omero-roitool-xxx`` folder downloaded in previous steps, then run::
 
-      unzip ome-omero-roitool-xxx.zip
       cd ome-omero-roitool-xxx
       cd bin
 
