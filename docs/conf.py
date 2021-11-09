@@ -23,7 +23,7 @@ import os
 # -- General configuration ------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
-#needs_sphinx = '1.0'
+needs_sphinx = '4.2.0'
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
@@ -50,14 +50,14 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'guide template'
-copyright = u'2019, Open Microscopy Environment'
+copyright = u'2021, Open Microscopy Environment'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
 # The short X.Y version.
-version = '0.1.0'
+version = '0.2.0'
 # The full version, including alpha/beta/rc tags.
 release = version
 
@@ -272,7 +272,7 @@ texinfo_documents = [
 epub_title = project
 epub_author = u'Open Microscopy Environment'
 epub_publisher = u'Open Microscopy Environment'
-epub_copyright = u'2019-2020, Open Microscopy Environment'
+epub_copyright = u'2019-2021, Open Microscopy Environment'
 
 # The basename for the epub file. It defaults to the project name.
 #epub_basename = u'guide template'
