@@ -41,7 +41,7 @@ Resources
 Setup
 -----
 
-- Download QuPath `v0.3.0 <https://github.com/qupath/qupath/releases/tag/v0.3.0>`_.
+- Download QuPath `v0.4.2 <https://github.com/qupath/qupath/releases/tag/v0.4.2>`_.
 - Download the `OMERO extension for QuPath <https://github.com/qupath/qupath-extension-omero/releases>`_ v0.3.0.
 - Install the OMERO extension as described in `qupath-omero-extension <https://github.com/qupath/qupath-extension-omero>`_.
 
