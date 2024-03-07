@@ -31,7 +31,7 @@ Resources
   - IDR project referenced as `idr0018 <https://idr.openmicroscopy.org/search/?query=Name:idr0018>`_. Note that the data also have been imported into an OMERO.server where the possibility to write ROIs/annotations exists (not the IDR server itself). See the ``Step-by-step`` section for further details.
 
 - `Video <https://www.youtube.com/watch?v=IffQ18ZQ3mI>`_ showing the usage of the QuPath OMERO extension 
-- QuPath documentation describing the `QuPath OMERO extension <https://qupath.readthedocs.io/en/latest/docs/advanced/omero.html>`_.
+- QuPath documentation describing the `QuPath OMERO extension <https://qupath.readthedocs.io/en/stable/docs/advanced/omero.html>`_.
 
 -  Plugin ``ome-omero-roitool`` **v0.2.4** for import and export of ROIs to or from OMERO using OME-XML format. The ``ome-omero-roitool-xxx.zip`` under Releases also contains the scripts for export and import of ROIs from/to QuPath in OME-XML format. For precise installation steps, see below the ``Step-by-step`` section.
 
