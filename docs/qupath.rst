@@ -118,12 +118,12 @@ Save detection ROIs using QuPath script
 
 #. Select several detection ROIs.
 
-#. Open the scripting dialog in QuPath ``Automate > Show script editor`` and paste into it the following code::
+#. Open the scripting dialog in QuPath ``Automate > Script editor`` and paste into it the following code::
 
       import qupath.lib.images.servers.omero.OmeroTools
       OmeroTools.writePathObjects(getSelectedObjects(), getCurrentServer())
 
-#. From the top menu, select ``Run > Run``. This saves the detection ROIs you selected in the ``Hierarchy`` tab into OMERO.
+#. Click ``Run``. This saves the detection ROIs you selected in the ``Hierarchy`` tab into OMERO.
 
 #. Go to OMERO.iviewer and refresh the image. Inspect the saved detection ROIs.
 
