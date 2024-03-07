@@ -31,7 +31,7 @@ Resources
   - IDR project referenced as `idr0018 <https://idr.openmicroscopy.org/search/?query=Name:idr0018>`_. Note that the data also have been imported into an OMERO.server where the possibility to write ROIs/annotations exists (not the IDR server itself). See the ``Step-by-step`` section for further details.
 
 - `Video <https://www.youtube.com/watch?v=IffQ18ZQ3mI>`_ showing the usage of the QuPath OMERO extension 
-- QuPath documentation describing the `QuPath OMERO extension <https://qupath.readthedocs.io/en/latest/docs/advanced/omero.html>`_.
+- QuPath documentation describing the `QuPath OMERO extension <https://qupath.readthedocs.io/en/stable/docs/advanced/omero.html>`_.
 
 -  Plugin ``ome-omero-roitool`` **v0.2.4** for import and export of ROIs to or from OMERO using OME-XML format. The ``ome-omero-roitool-xxx.zip`` under Releases also contains the scripts for export and import of ROIs from/to QuPath in OME-XML format. For precise installation steps, see below the ``Step-by-step`` section.
 
@@ -43,7 +43,7 @@ Setup
 
 - Download QuPath `v0.5.1 <https://github.com/qupath/qupath/releases/tag/v0.5.1>`_.
 - Download the `OMERO extension for QuPath <https://github.com/qupath/qupath-extension-omero-web/releases>`_ v0.4.0.
-- Install the OMERO extension as described in `qupath-omero-web-extension <https://github.com/qupath/qupath-extension-omero-web>`_.
+- Install the OMERO extension as described in `qupath-omero-web-extension <https://github.com/qupath/qupath-extension-omero-web>`_. Do not use the link available in the README of that repostiroy for downloading the extension jar, use the artifact downloaded in the previous step from `qupath-omero-web-extension <https://github.com/qupath/qupath-extension-omero-web/releases>`_.
 - Note: the QuPath team is working on newer versions of the extensions under `qupath-omero-extension <https://github.com/qupath/qupath-extension-omero>`_ - these versions are currently under development and are meant only for testing.
 
 Step-by-step
