@@ -43,7 +43,7 @@ Setup
 
 - Download QuPath `v0.5.1 <https://github.com/qupath/qupath/releases/tag/v0.5.1>`_.
 - Download the `OMERO extension for QuPath <https://github.com/qupath/qupath-extension-omero-web/releases>`_ v0.4.0.
-- Install the OMERO extension as described in `qupath-omero-web-extension <https://github.com/qupath/qupath-extension-omero-web>`_. Do not use the link in that README for downloading the extension jar, use the artifact downloaded in previous step from `qupath-omero-web-extension <https://github.com/qupath/qupath-extension-omero-web/releases>`_.
+- Install the OMERO extension as described in `qupath-omero-web-extension <https://github.com/qupath/qupath-extension-omero-web>`_. Do not use the link available in the README of that repostiroy for downloading the extension jar, use the artifact downloaded in the previous step from `qupath-omero-web-extension <https://github.com/qupath/qupath-extension-omero-web/releases>`_.
 - Note: the QuPath team is working on newer versions of the extensions under `qupath-omero-extension <https://github.com/qupath/qupath-extension-omero>`_ - these versions are currently under development and are meant only for testing.
 
 Step-by-step
