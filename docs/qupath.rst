@@ -5,7 +5,7 @@ Description
 -----------
 
 QuPath is a cross-platform software application designed for bioimage analysis - and specifically to meet the needs of whole slide image analysis and digital pathology.
-See https://github.com/qupath/qupath/wiki/
+See http://qupath.readthedocs.io/.
 
 We will show:
 
