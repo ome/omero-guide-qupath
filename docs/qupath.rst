@@ -27,7 +27,6 @@ Resources
 
   - IDR project referenced as `idr0018 <https://idr.openmicroscopy.org/search/?query=Name:idr0018>`_. Note that the data also have been imported into an OMERO.server where the possibility to write ROIs/annotations exists (not the IDR server itself). See the ``Step-by-step`` section for further details.
 
-- `Video <https://www.youtube.com/watch?v=IffQ18ZQ3mI>`_ showing the usage of the QuPath OMERO extension 
 - QuPath documentation describing the `QuPath OMERO extension <https://qupath.readthedocs.io/en/stable/docs/advanced/omero.html>`_.
 
 Step-by-step
@@ -62,9 +61,9 @@ Opening images with ROIs from OMERO in QuPath
 
 #. To draw new ROIs or annotations in QuPath, find a region with well-defined cells and nuclei in the image, zoom in.
 
-#. Draw an ``Annotation`` which denotes the region in which the cells will be detected using the ``Wand`` tool |image3|. 
+#. Use the ``Wand`` tool to draw a region (``Annotation``) that we will use in a future step to detect cells |image3|.
 
-#. Click ``Extensions > OMERO > Send annotations to OMERO``. A dialog will inform you how many ROIs are to be saved. Click ``OK``.
+#. Click ``Extensions > OMERO > Send to OMERO > Send annotations``.
 
 #. Go to OMERO.iviewer, refresh the image and verify that the annotation was saved as an OMERO ROI (polygon).
 
