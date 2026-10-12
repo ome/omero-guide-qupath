@@ -63,7 +63,7 @@ Opening images with ROIs from OMERO in QuPath
 
 #. Use the ``Wand`` tool to draw a region (``Annotation``) that we will use in a future step to detect cells |image3|.
 
-#. Click ``Extensions > OMERO > Send to OMERO > Send annotations``. A dialog will inform you how many ROIs are to be saved. Click ``OK``.
+#. Click ``Extensions > OMERO > Send to OMERO > Send annotations``.
 
 #. Go to OMERO.iviewer, refresh the image and verify that the annotation was saved as an OMERO ROI (polygon).
 
